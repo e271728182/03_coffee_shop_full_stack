@@ -39,12 +39,7 @@ greetings = {
             'he': 'שלום',
             'ja': 'こんにちは'
             }
-def requires_auth(f):
-    @Wraps(f)
-    def wrapper(*args,**kwargs):
-        jwt= get_token_auth_header()
-        return f(*args,**kwargs)
-    return wrapper
+
 
 class AuthError(Exception):
     def __init__(self, error, status_code):
